@@ -51,6 +51,7 @@ class LoginView: UIView {
          passwordTextField.translatesAutoresizingMaskIntoConstraints = false
          passwordTextField.placeholder = "Password"
          passwordTextField.isSecureTextEntry = true
+         passwordTextField.enablePasswordToogle()
          passwordTextField.delegate = self
          
          dividerView.translatesAutoresizingMaskIntoConstraints = false

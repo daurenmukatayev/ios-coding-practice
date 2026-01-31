@@ -10,16 +10,30 @@ class AccountSummaryViewController: UIViewController {
     
     var accounts: [AccountSummaryCell.ViewModel] = []
     var tableView = UITableView()
+    lazy var logoutBarButtonItem: UIBarButtonItem = {
+        let barButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutTapped))
+        barButtonItem.tintColor = .label
+        return barButtonItem
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-        setupHeaderTableView()
-        fetchData()
+        setupNavigationBar()
+        setup()
+    }
+    private func setupNavigationBar() {
+        navigationItem.rightBarButtonItem = logoutBarButtonItem
     }
 }
 
 extension AccountSummaryViewController {
+    
+    private func setup() {
+        setupTableView()
+        setupHeaderTableView()
+        fetchData()
+
+    }
     
     private func setupHeaderTableView() {
         let header = AccountSummaryHeaderView(frame: .zero)
@@ -54,7 +68,7 @@ extension AccountSummaryViewController {
                                                    accountName: "Basic Savings",
                                                    balance: 929466.23)
         let chequing = AccountSummaryCell.ViewModel(accountType: .Banking,
-                                                    accountName: "No-Fee All-In Chequing",
+                                                    accountName: "No-Fee All-In ChequingChequing",
                                                     balance: 17562.44)
         let visa = AccountSummaryCell.ViewModel(accountType: .CreditCard,
                                                 accountName: "Visa Avion Card",
@@ -95,5 +109,11 @@ extension AccountSummaryViewController: UITableViewDataSource {
 extension AccountSummaryViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("fdf")
+    }
+}
+//MARK: Actions
+extension AccountSummaryViewController {
+    @objc func logoutTapped(sender: UIButton) {
+        NotificationCenter.default.post(name: .logout, object: nil)
     }
 }

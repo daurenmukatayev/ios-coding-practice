@@ -57,6 +57,7 @@ extension AccountSummaryCell {
         
         nameLabel.translatesAutoresizingMaskIntoConstraints = false
         nameLabel.font = UIFont.preferredFont(forTextStyle: .body)
+        nameLabel.numberOfLines = 2
         nameLabel.text = "Account Name"
         
         balanceStackView.translatesAutoresizingMaskIntoConstraints = false
