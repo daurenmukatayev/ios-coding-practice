@@ -16,25 +16,28 @@ struct CurrencyFormatter {
     
     // Converts 929466.23 > "929,466" "23"
     func breakIntoDollarsAndCents(_ amount: Decimal) -> (String, String) {
-        let tuple = modf(amount.doubleValue)
-        
-        let dollars = convertDollar(tuple.0)
-        let cents = convertCents(tuple.1)
-        
-        return (dollars, cents)
+        let number = NSDecimalNumber(decimal: amount)
+        let dollars = number.intValue
+        let cents = number.subtracting(NSDecimalNumber(value: dollars))
+                          .multiplying(by: 100)
+                          .intValue
+
+        return (convertDollar(Double(dollars)),
+                String(format: "%02d", cents))
     }
+
     
     // Converts 929466 > 929,466
     private func convertDollar(_ dollarPart: Double) -> String {
-        let dollarsWithDecimal = dollarsFormatted(dollarPart) // "$929,466.00"
         let formatter = NumberFormatter()
-        let decimalSeparator = formatter.decimalSeparator! // "."
-        let dollarComponents = dollarsWithDecimal.components(separatedBy: decimalSeparator) // "$929,466" "00"
-        var dollars = dollarComponents.first! // "$929,466"
-        dollars.removeFirst() // "929,466"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.numberStyle = .decimal
+        formatter.usesGroupingSeparator = true
+        formatter.maximumFractionDigits = 0
 
-        return dollars
+        return formatter.string(from: dollarPart as NSNumber) ?? ""
     }
+
     
     // Convert 0.23 > 23
     private func convertCents(_ centPart: Double) -> String {
@@ -50,6 +53,9 @@ struct CurrencyFormatter {
     // Converts 929466 > $929,466.00
     func dollarsFormatted(_ dollars: Double) -> String {
         let formatter = NumberFormatter()
+                formatter.locale = Locale(identifier: "en_US")
+      
+
         formatter.numberStyle = .currency
         formatter.usesGroupingSeparator = true
         
