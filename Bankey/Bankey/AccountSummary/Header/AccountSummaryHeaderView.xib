@@ -11,6 +11,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AccountSummaryHeaderView" customModule="Bankey" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="KXW-IB-KvU"/>
+                <outlet property="dateLabel" destination="JcW-Pb-lGY" id="FEc-Wf-LuH"/>
+                <outlet property="nameLabel" destination="9XM-ST-8I6" id="JJw-VF-nMc"/>
+                <outlet property="welcomeLabel" destination="ijs-Jq-PCu" id="iiK-aY-3EP"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -24,25 +27,25 @@
                             <rect key="frame" x="0.0" y="0.0" width="257" height="112"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bankey" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9vI-cv-I2X">
-                                    <rect key="frame" x="0.0" y="0.0" width="257" height="33"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="257" height="33.666666666666664"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good morning," textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ijs-Jq-PCu">
-                                    <rect key="frame" x="0.0" y="41" width="257" height="20.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="41.666666666666664" width="257" height="20.333333333333336"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dauren" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9XM-ST-8I6">
-                                    <rect key="frame" x="0.0" y="69.333333333333329" width="257" height="20.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="70" width="257" height="20.333333333333329"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JcW-Pb-lGY">
-                                    <rect key="frame" x="0.0" y="97.666666666666671" width="257" height="14.333333333333329"/>
+                                    <rect key="frame" x="0.0" y="98.333333333333329" width="257" height="13.666666666666671"/>
                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
