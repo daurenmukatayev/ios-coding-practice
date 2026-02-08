@@ -75,7 +75,7 @@ extension AccountSummaryViewController {
                     let accounts = try decoder.decode([Account].self, from: data)
                     completion(.success(accounts))
                 } catch {
-                    completion(.failure(.decodingError))
+                    completion(.failure(.serverError))
                 }
             }
         }.resume()
